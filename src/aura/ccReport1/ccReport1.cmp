@@ -1,0 +1,28 @@
+<aura:component description="component to display Style 1 report">
+
+	<!-- Chart Libraries -->
+	<ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"
+		scripts="{!$Resource.ccResources + '/libs/highcharts/highcharts-custom2.js'}" afterScriptsLoaded="{!c.doInit}"  />
+
+
+	<!-- Component handlers 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
+    
+	<!-- START Summary Report Content -->
+    <div class="col-lg-10 col-lg-offset-1 col-xs-10 col-xs-offset-1">
+    	<div class="header text-center ">
+    		<img src="{!$Resource.ccResources + '/img/2ea17e1.png'}" class="logo" />
+	        <h2 class="text-uppercase heading-top">Your Spenditure Data</h2>
+	        <h3>Customer Name : iDream Solutions</h3>
+	        <p><strong>Information Period : 2017-11-01</strong></p>
+		</div>
+      
+		<!-- Chart Container -->
+		<div id="chart-container" class="chart-container"></div>
+		<canvas id="chartimgCanvas" width="600" height="400" style="border:1px solid;display:none"></canvas>
+
+	</div>	
+
+		
+
+</aura:component>
