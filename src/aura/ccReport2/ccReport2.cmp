@@ -2,7 +2,7 @@
 
 	<!-- Chart Libraries -->
 	<ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"
-		scripts="{!$Resource.ccResources + '/libs/highcharts/highcharts-custom2.js'}" afterScriptsLoaded="{!c.doInit}"  />
+		scripts="{!$Resource.ccResources + '/libs/highcharts/highstock.js'}" afterScriptsLoaded="{!c.doInit}"  />
 
 
 	<!-- Component handlers 
@@ -12,13 +12,13 @@
     <div class="col-xs-12">
     	<div class="header text-center ">
     		<!-- <img src="{!$Resource.ccResources + '/img/2ea17e1.png'}" class="logo" /> -->
-	        <h2 class="text-uppercase heading-top">Your Expenditure Data</h2>
-	        <h3>Customer Name : iDream Solutions</h3>
-	        <p><strong>Information Period : 2017-01-01 to 11-01</strong></p>
+	        <h2 class="text-uppercase heading-top">Real-time Sensor Data Report</h2>
+	        <h3>Customer Name : ASP Solutions</h3>
+	        
 		</div>
       
 		<!-- Chart Container -->
-		<div id="chart-container1" class="chart-container"></div>
+		<div id="chart-container2" class="chart-container"></div>
 		<canvas id="chartimgCanvas" width="600" height="400" style="border:1px solid;display:none"></canvas>
 
 	</div>	

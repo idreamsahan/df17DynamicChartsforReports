@@ -1,0 +1,19 @@
+.THIS .reportnavbar {color:#fff !important; background-color: #313131;height: 100%;position: inherit;padding-right: 0px;padding-left: 0px;    left: 1px; position: relative;}
+.THIS .subNavItem a {color:#fff !important;}
+.THIS .subNavItem:hover {background-color: #338dc7;}
+.THIS .active {background-color: #0d5b96;}
+.THIS .type-selected {background-color: #148ed8;    padding-top: 10px; color: #fff;}
+.THIS .subNavItem {background-color: #313131;padding-left: 10px;}
+.THIS .box {display: inline-block;background-color: #148ed8;width: 100px;height: 100px;font-size: 54pt;color: #fff;text-align: center;}
+.THIS .no-padding {padding: 0;}
+.THIS .report-types {margin-top: 50px;display: inline-block;}
+.THIS .detail{    padding-top: 20px;margin-left: 10px; min-height: 100px;display: inline-block;}
+.THIS .detail h2 {margin-top: 0px;}
+.THIS .type-wrap {    cursor: pointer;padding-left: 0px; margin-left: 0px;margin-bottom: 40px;}
+.THIS .margin-auto {margin:auto;}
+.THIS .full-size-a {    display: inline-block; width: 100%;}
+.THIS .subNavContainer {background-color: #313131;}
+.THIS .report-container {min-height: calc(100vh - 470px);}
+.THIS .generate {width: 25%;font-size: 1.5em;border-radius: 4px;color: #4d9e18!important;padding: 10px;text-align: center;border: 1px solid #4d9e18;text-transform: uppercase;}
+.THIS .mauto {margin-left:auto; margin-right:auto;}
+.THIS a:hover .generate {color: #fff !important;background-color:#4d9e18; }

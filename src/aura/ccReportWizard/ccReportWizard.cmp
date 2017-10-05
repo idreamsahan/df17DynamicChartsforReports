@@ -1,0 +1,52 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="selectedReport" type="String" description="Attribute to hold selected report"/>
+
+    <ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"/>
+
+    <!-- Component handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- Component events 
+    <aura:registerEvent name="ccReportWizardNav_Event" type="c:ccReportWizardNav_Event"/> -->
+
+    <!-- START Content -->
+    <div id="report" class="row report-container">
+        <div class="col-xs-10 col-xs-offset-1 col-lg-10 col-lg-offset-1">
+            <h2>Select one of the following types of report</h2>
+            <div class="report-types">
+               <div class="{!v.selectedReport == 'report1' ? 'row col-xs-12 type-wrap type-selected' : 'row col-xs-12 type-wrap'}" id="report1" onclick="{!c.setSelectedReport}">
+                    <div class="col-xs-3 box in-line">1</div>
+                    <div class="col-xs-9 detail in-line">
+                        <h2>Last Quarter Expenditure Report</h2>
+                        <p>This report includes all the expenditures for work completed by ABSI. You can generate all the information related to services consumed from ABSI.</p>
+                    </div>
+                </div>
+                <div class="{!v.selectedReport == 'report2' ? 'row col-xs-12 type-wrap type-selected' : 'row col-xs-12 type-wrap'}" id="report2" onclick="{!c.setSelectedReport}">
+                    <div class="col-xs-3 box in-line">2</div>
+                    <div class="col-xs-9 detail in-line">
+                        <h2>Real-time Sensor Data Report</h2>
+                        <p>This report feeds real-time data gathered from your 24/7 devices and gives you an insight of its conditions. Also you can see all the realted data for sensor based services.</p>
+                    </div>
+                </div>
+                <!-- Change / Create permissions to view yearly report -->
+                <div class="{!v.selectedReport == 'report3' ? 'row col-xs-12 type-wrap type-selected' : 'row col-xs-12 type-wrap'}" id="report3" onclick="{!c.setSelectedReport}">
+                    <div class="col-xs-3 box in-line">3</div>
+                    <div class="col-xs-9 detail in-line">
+                        <h2>Newsletter Report</h2>
+                        <p>This report shows you the last customer newsletter report for your reference. It contains all the data related to last newsletter cycle and will show data with several visualizations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 ">
+	            <a href="javasript:void(0);" onclick="{!c.generate}">
+	            	<div class="mauto generate">
+		            	<span class="glyphicon glyphicon-cog"></span> Generate
+		        	</div>
+		        </a>
+	        </div>
+        </div>
+    </div>
+
+    {!v.body}
+    <!-- END Content -->
+</aura:component>
