@@ -1,0 +1,239 @@
+<!-- **********************************************************************
+ Name: ccReport2PDF
+======================================================
+Description:ccReport2PDF VF page - To generate PDf for Expenditure report
+***********************************************************************-->
+<apex:page controller="ccReportPDFCTRL" showHeader="false" renderAs="pdf" cache="false" sidebar="false" applyhtmltag="false" standardStylesheets="false">
+    <head>
+        <style>
+            @page { size:A4 landscape; @bottom-right { content: element(footer); } }
+
+            .pagebreak { page-break-before: always; }
+            #content { font-family: Arial Unicode MS !important; font-size: 12px;background-color: #fff; }
+            .cost-sum-header-small {text-transform: lowercase;font-size: 10px;}
+            h2, .big-txt {font-size: 16pt;}
+            .clear {clear: both;}
+            .text-uppercase {text-transform: uppercase;}
+            .text-left {text-align: left;}
+            .text-right{text-align: right;}
+            .text-center{text-align: center;}
+            .footer {font-family: Arial Unicode MS;font-size: 8pt;text-align: left; display: block; padding: 5px; position: relative;}
+            table {-fs-table-paginate: paginate;border-spacing: 0;}
+            table.print-friendly {page-break-inside: avoid;}
+            .row-outer-header {background-color: #e0f3fd; border:2px solid white;}
+            .top-outer-header {background-color: #313131;color: #fff;}
+            .cost-sum-header {color: #338dc7;}
+            .cost-sum-header td, .top-outer-header td, .cost-sum-header td, .row-outer-header td, .inner-sum-header th {width: 16.66666667%;}
+            th, td {padding:5px;min-height:30px;}
+            #inner-td {padding: 0px;}
+            th {font-weight:normal;}
+            .inner-sum-header {color: #338dc7;}
+            .cost-sub {color: #338dc7;text-transform: uppercase;text-align: left;}
+            .row-highlight tr:nth-child(odd) {background-color: #eee;}
+            .row-highlight tr:nth-child(even) {background-color: #fff;}
+            .data-row {background-color: #f5f6f7;}
+            table#dataset { border-collapse: collapse; }
+            .margin-top {margin-top: 5px;}
+        </style>
+    </head>
+    <div class="header"><apex:image url="{!URLFOR($Resource.ccResources, '/img/2ea17e1.png')}" width="135px" style="float: right"/></div>
+
+    <div id="content" class="col-lg-10 clear" >
+        <h2 class="text-uppercase text-center heading-top">
+            Your Expenditure Data
+            
+        </h2>
+
+        <div id="text-container">
+            <p class="text-uppercase">iDream Solutions</p>
+            <p class="text-uppercase">
+                Information Period : 2017-01-01 to 11-01
+            </p>
+        </div>
+        
+        <!-- Report Chart-->
+        <div id="text-container" class="text-center">
+            <img src="/servlet/servlet.FileDownload?file={!FileId}" style="width: 100%;margin-top: 50px;" height="400" />
+        </div>
+
+        <!-- Outer header-->
+        <table width="100%" cellpadding="0" cellspacing="0" class="pagebreak print-friendly">
+            <tr class="text-right cost-sum-header text-uppercase">
+                <td>Date</td>
+                <td>Type</td>
+                <td>Customer</td>
+                <td>Service #</td>
+                <td>Status</td>
+                <td>Cost</td>                
+            </tr>
+        </table>
+
+        <!-- row dataset 1-->
+        <table id="dataset" width="100%" cellpadding="0" cellspacing="0" class="print-friendly">
+             <thead>
+                <tr class="text-right inner-sum-header data-row">
+                    <th class="text-center">Date</th>
+                    <th>Type</th>
+                    <th>Customer</th>
+                    <th>Service #</th>
+                    <th>Status</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="inner-td" colspan="6" >
+                        <table width="100%" cellpadding="0" cellspacing="0" class="print-friendly margin-top">
+                           <tbody>
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+                                <tr class="text-right row-outer-header">
+                                    <td class="col-xs-2" >10/11/2017</td>
+									<td class="col-xs-2" >Integration</td>
+									<td class="col-xs-2" >ASP Belgium</td>
+									<td class="col-xs-2">#4353245</td>
+									<td class="col-xs-2" >Completed</td>
+									<td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+    Dreamforce Demo
+        <hr/>
+        <p class="pSmall">
+            {!YEAR(TODAY())}<br/>
+            ABSI All Rights Reserved.
+        </p>
+    </div>
+</apex:page>

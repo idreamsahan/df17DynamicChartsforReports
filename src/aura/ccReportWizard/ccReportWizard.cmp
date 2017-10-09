@@ -1,4 +1,6 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    
+	<!-- Component attributes -->
     <aura:attribute name="selectedReport" type="String" description="Attribute to hold selected report"/>
 
     <ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"/>

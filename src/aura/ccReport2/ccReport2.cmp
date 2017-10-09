@@ -1,8 +1,7 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global" description="component to display Style 1 report">
 
 	<!-- Chart Libraries -->
-	<ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"
-		scripts="{!$Resource.ccResources + '/libs/highcharts/highstock.js'}" afterScriptsLoaded="{!c.doInit}"  />
+	<!-- <ltng:require scripts="{!$Resource.ccResources + '/libs/highcharts/highstock.js'}" afterScriptsLoaded="{!c.doInit}"  /> -->
 
 
 	<!-- Component handlers 

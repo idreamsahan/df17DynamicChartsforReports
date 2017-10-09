@@ -1,6 +1,9 @@
 ({
     getData : function(cmp, helper) {
         
+
+    	console.log(Highcharts);
+
     	var costChart2 =	Highcharts.setOptions({
 							global: {
 							    useUTC: false
@@ -21,30 +24,14 @@
 								                    var x = (new Date()).getTime(), // current time
 								                        y = Math.round(Math.random() * 100);
 								                    series.addPoint([x, y], true, true);
-								                }, 800);
+								                }, 1000);
 								            }
 								        }
 							        },
 							        global: {
 									    useUTC: false
 									},
-							        rangeSelector: {
-								        buttons: [{
-								            count: 1,
-								            type: 'minute',
-								            text: '1M'
-								        }, {
-								            count: 5,
-								            type: 'minute',
-								            text: '5M'
-								        }, {
-								            type: 'all',
-								            text: 'All'
-								        }],
-								        inputEnabled: false,
-								        selected: 0
-								    },
-
+							        
 								    tooltip: {
 							            formatter: function () {
 							                return '<b>' + this.series.name + '</b><br/>' +
@@ -79,7 +66,7 @@
 								                time = (new Date()).getTime(),
 								                i;
 
-								            for (i = -999; i <= 0; i += 1) {
+								            for (i = -99; i <= 0; i += 1) {
 								                data.push([
 								                    time + i * 1000,
 								                    Math.round(Math.random() * 100)
@@ -96,7 +83,11 @@
                                     }
 							    });
               
-                
+                costChart2.setOptions({
+							global: {
+							    useUTC: false
+							}
+							});
           
     }   
 })

@@ -1,3 +1,3 @@
 <aura:application >
-    <c:ccReport1 />
+    <c:ccReportWizard />
 </aura:application>

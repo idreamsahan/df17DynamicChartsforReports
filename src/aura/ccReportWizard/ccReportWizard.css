@@ -17,3 +17,7 @@
 .THIS .generate {width: 25%;font-size: 1.5em;border-radius: 4px;color: #4d9e18!important;padding: 10px;text-align: center;border: 1px solid #4d9e18;text-transform: uppercase;}
 .THIS .mauto {margin-left:auto; margin-right:auto;}
 .THIS a:hover .generate {color: #fff !important;background-color:#4d9e18; }
+.THIS .float-r {float: right}
+.THIS .clear {clear: both;}
+.THIS .download {border-radius: 4px; color: #0271b5!important; padding: 10px; text-align: center; border: 1px solid #0271b5; text-transform: uppercase;}
+.THIS a:hover .download {color: #fff !important;background-color:#0271b5; }

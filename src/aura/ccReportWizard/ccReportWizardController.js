@@ -28,7 +28,7 @@
 
 	   $A.createComponent(
 	        reportcmp,
-	        '',
+	        {"selectedReport" : component.get("v.selectedReport")},
 	        function(newComponent){
 	            if (component.isValid()) {
 	                component.set('v.body', [newComponent]);
