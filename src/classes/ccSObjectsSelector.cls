@@ -19,7 +19,14 @@ public abstract class ccSObjectsSelector
 	public ccSObjectsSelector()	{}
 
 	//Public property to define the fields to be returned (defined as strings)
-	public List<String> sObjectFieldStringList {private get; set;}			
+	public List<String> sObjectFieldStringList {private get; set;}		
+    
+    //Property to hold the query that needs to be executed
+    protected String soqlQuery {get; set;}
+
+    public String returnQuery(){
+        return soqlQuery;
+    }	
 
 	//Method to create the select string of the query
 	protected String getSelectString()

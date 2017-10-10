@@ -1,0 +1,100 @@
+.THIS {padding:20px 0px 20px 0px;background-color:#fff;}
+.THIS label {font-weight: normal;}
+.THIS .uppercase {text-transform:uppercase;}
+.THIS .color-white {color: #fff;}
+.THIS .pdf-icon {color: #3a3a3a; font-size: 55px;}
+.THIS .custom-spinner {border-radius: 50%;}
+
+/* Cards */
+.THIS .card{pointer-events: none;overflow: hidden;    position: relative;}
+.THIS .report{max-height: 230px;}
+.THIS .report-card{position: static;z-index: 1;min-height: 140px;background-color: #ebedf0;margin-top: 10px;border-radius: 4px 4px 0px 0px;padding: 20px 20px 0px 20px;}
+.THIS .report-card div {position: inherit;}
+.THIS .report-card-footer{line-height: 80px;min-height: 80px;background-color: #515152;position: static; z-index: 1;bottom:0px;color:#fff;text-align:center;border-radius: 0px 0px 4px 4px;}
+.THIS .report-card-hover{text-align: center; height: 220px;background-color: rgba(0,0,0,0.9);margin-top: 10px;border-radius: 4px;padding: 30px 20px;}
+.THIS .report-card-footer-hover{padding: 15px 5px 5px 5px;min-height: 107px;background-color: #515152;position:relative;bottom:0px;color:#fff;text-align:center;border-radius: 0px 0px 4px 4px;}
+.THIS .report-card-date{color:#9499a0;}
+.THIS .rp-file-type {text-align: center;margin-top: 10px;}
+.THIS .report-card-share{position: relative;top: 10px;}
+.THIS .report-card-hover-body {text-transform: uppercase;color: #fff;padding:0px;text-align: center;}
+.THIS .section-top{margin-top:20px;}
+.THIS .report-card-bottom{margin-bottom: 20px;position: inherit;}
+.THIS .hover{display:none;position: relative;top: -230px;opacity:0;-webkit-animation:fadeIn ease 1;-moz-animation:fadeIn ease 1;animation:fadeIn ease 1; -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+  -webkit-animation-duration:0.35s;
+  -moz-animation-duration:0.35s;
+  animation-duration:0.35s;}
+.THIS .report:hover .hover{display:block;}
+.THIS .controllers{min-height: 35px;position: relative;right: -10px;top: -25px;text-align: right;}
+.THIS .controller-button{display:inline;}
+.THIS .view-report{top: -15px;position: relative;color: white;text-transform: uppercase;}
+.THIS .card-label{color:#9da7b3;font-size: 10pt;}
+.THIS .card-data {color:#808080;font-weight: bold;}
+
+/* Option Click */
+.THIS .check-label{margin-bottom: 0px;}
+.THIS input[type=checkbox] {position: absolute;top: -9999px;left: -9999px;}
+.THIS input[type=checkbox]:checked ~ .controllerlist { display: block;}
+.THIS input[type=checkbox]:checked ~ .check-label { display: none;}
+
+.THIS .user-hover{display: none;}
+.THIS .user-more input[type=checkbox] {position: absolute;top: -9999px;left: -9999px;}
+.THIS .user-more input[type=checkbox]:checked ~ .user-hover { display: block;}
+
+.THIS #no-results {margin-top:15%;}
+
+/* User Circle Component */
+.THIS .user-circle {    font-size: 12pt; border-radius: 50%; width: 30px;height: 30px; background-color: #005a94;color: white; padding: 5px;text-align: center;text-transform:uppercase;}
+.THIS .user-circle-default {float: left;margin: 0px 5px 0px 0px;}
+
+/* User additional list */
+.THIS .user-hover{text-transform: none;color: #fff;border-radius: 4px;background: #313131;position: relative;z-index: 2;left: 237%;width: 130px;text-align: left;z-index: 999;top: -338%;}
+.THIS .user-hover li {list-style: none;}
+.THIS .user-hover ul {padding: 10px;margin: 0px;min-height: 80px;}
+.THIS .user-hover:before {content:'';position: absolute;top: 38px;left: -7%;margin-left: -10px;width: 0;height: 0;border-bottom: solid 10px transparent; border-top: solid 10px transparent;border-left: solid 10px transparent;border-right: solid 10px #313131;}
+
+/* Normal hover */
+.THIS .info-hover{display:none;text-transform: none;color: #fff;border-radius: 4px;background: #313131;position: relative;width: 60px;text-align: center;z-index: 999;top:0px;}
+.THIS .info-hover:before {content:'';position: absolute;    top: 75%;left: 50%;margin-left: -10px;width: 0;height: 0;border-bottom: solid 10px transparent; border-top: solid 10px #313131;border-left: solid 10px transparent;border-right: solid 10px transparent;}
+.THIS .del-a{display: inline-block; width: 60px; position: relative; right: -10px;margin-top: 10px; font-size: 15px;}
+.THIS .cop-a{display: inline-block;    margin-top: -30px;}
+
+/* Button hover dialogue styles */
+.THIS a[id^="del"]:hover div[id^="delh"] { display: block;}
+.THIS a[id^="cop"]:hover div[id^="coph"] { display: block;}
+
+.THIS .no-result-message {color: #9da7b3;}
+
+/* Overlay Loader */
+.THIS .rp-loading-spinner {z-index: 9999;}
+.THIS .rp-loading-spinner .rp-loader-overlay {display: block !important;}
+.THIS .rp-loader-overlay {border-radius: 4px ;margin-top:10px;display: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 95%; z-index: 10; background-color: rgba(0,0,0,0.5);}
+.THIS .rp-loader,.THIS .rp-loader:before,.THIS .rp-loader:after {border-radius: 50%;}
+.THIS .rp-loader {top: 13%;margin: 0px auto;color: #0071b9;position: relative;width: 2.5em;height: 2.5em;box-shadow: inset 0 0 0 0.3em;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+.THIS .rp-loader:after {width: 1.5em;height: 3em;background: #fff;border-radius: 0 2.55em 2.55em 0;top: -0.125em;left: 1.275em;-webkit-transform-origin: 0px 1.375em;transform-origin: 0px 1.4em;-webkit-animation: load2 1.2s infinite ease;animation: load2 1.2s infinite ease;}
+.THIS .rp-loader:before {width: 1.5em;height: 3em;background: #fff;border-radius: 2.6em 0 0 2.6em;top: -0.2em;left: -0.23em;-webkit-transform-origin: 1.3em 1.375em;transform-origin: 1.4em 1.4em;-webkit-animation: load2 1.2s infinite ease 0.3s;animation: load2 1.2s infinite ease 0.3s;}
+.THIS .rp-loader:before, .THIS .rp-loader:after { position: absolute;content: '';}
+.THIS .rp-loader-outer {margin:0px auto;border-radius: 50%;top: 35%;position: relative;background-color: #fff;  width: 55px;  height: 55px; }
+
+/* Animation Keyframes */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* Small devices (tablets portrait, 768px and up) */
+@media (min-width : 320px)
+{
+   .THIS {padding:40px 0px 40px 0px;background-color:#fff;}
+}
+
+/* Small devices (tablets portrait, 768px and up) */
+@media (min-width : 768px)
+{
+   .THIS {padding:40px 0px 40px 0px;background-color:#fff;}
+}
+
+/* Medium devices (Tablets landscape, 1024px and up) */
+@media (min-width : 1024px){
+    .THIS {padding:20px 0px 20px 0px;background-color:#fff;}
+}

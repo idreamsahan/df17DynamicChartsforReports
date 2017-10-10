@@ -1,0 +1,280 @@
+<!-- **********************************************************************
+ Name: ccReport2PDF
+======================================================
+Description:ccReport2PDF VF page - To generate PDf for Expenditure report
+***********************************************************************-->
+<apex:page controller="ccReportPDFCTRL" showHeader="false" renderAs="pdf" cache="false" sidebar="false" applyhtmltag="false" standardStylesheets="false">
+    <head>
+        <style>
+            @page { size:A4 landscape; @bottom-left { content: element(footer); }; margin-left:0; margin-right:0;margin-bottom: 0;}
+            #container { font-family: Arial Unicode MS !important; font-size: 12px;background-color: #fff;}
+            .cost-sum-header-small {text-transform: lowercase;font-size: 10px;}
+            h2, .big-txt {font-size: 16pt;}
+            .clear {clear: both;}
+            .text-uppercase {text-transform: uppercase;}
+            .text-left {text-align: left;}
+            .text-right{text-align: right;}
+            .text-center{text-align: center;}
+            table {-fs-table-paginate: paginate;border-spacing: 0;}
+            table.print-friendly {page-break-inside: avoid;}
+            .row-outer-header1 {background-color: #eee; border:2px solid white;margin-bottom: 2px;}
+            .row-outer-header2 {background-color: #fff; border:2px solid white;margin-bottom: 2px;}
+            .cost-sum-header {color: #338dc7;}
+            .cost-sum-header td, .top-outer-header td, .cost-sum-header td, .row-outer-header td, .inner-sum-header th {width: 16.66666667%;}
+            th, td {padding:5px;min-height:30px;}
+            #inner-td {padding: 0px;}
+            th {font-weight:normal;}
+            .inner-sum-header {color: #338dc7;}
+            .cost-sub {color: #338dc7;text-transform: uppercase;text-align: left;}
+            .row-highlight tr:nth-child(odd) {background-color: #eee;}
+            .row-highlight tr:nth-child(even) {background-color: #fff;}
+            table#dataset { border-collapse: collapse; }
+            .margin-top {margin-top: 5px;}            
+            .pagebreak { page-break-before: always; }
+            h2 {font-size: 18pt;font-weight: normal;}
+            h2.your-spend {margin: 0px !important;}
+            h1 {font-size: 36pt;font-weight: normal;}
+            h3 {font-weight: normal;}
+            .clear {clear: both;}
+            .text-center{text-align: center;}
+            .text-container {padding: 20px 50px;}
+            .banner-image {margin-top: 20px;width: 100%;padding: 0px; }
+            body{margin: 0px;}
+            .content{margin: 0px 50px}                
+            .col-xs-2 {width: 16.67%}
+            .footer {font-family: Arial Unicode MS !important;margin-top:190px;min-height: 200px;font-size: 8pt;text-align: left; display: block; color:#777;position: relative;}
+           
+
+        </style>
+    </head>
+    <div class="header text-center"><apex:image url="{!URLFOR($Resource.ccResources, '/img/logo.jpg')}" width="200px"  /></div>
+
+    <div id="container" class="col-lg-10 clear" >
+        <h2 class="text-uppercase text-center heading-top">
+            Real-time sensor data report
+            
+        </h2>
+
+        <div id="text-container" class=" text-center">
+            <p class="text-uppercase">Customer : <strong>iDream Solutions</strong></p>
+            <p class="text-uppercase">
+                Information Period : <strong>2017.01.01 - 2017.11.01</strong>
+            </p>
+        </div>
+        
+        <apex:image styleClass="banner-image" url="{!URLFOR($Resource.ccResources, 'img/financials.jpg')}" height="300px" /> 
+        
+        <!-- Report Chart-->
+        <div id="text-container" class="text-center text-container">
+            <img src="/servlet/servlet.FileDownload?file={!FileId}" style="width: 100%;margin-top: 50px;" height="400" />
+        </div>
+
+     
+
+        <!-- row dataset 1-->
+        <table id="dataset" width="100%" cellpadding="0" cellspacing="0" class="print-friendly pagebreak text-container">
+             <thead>
+                <tr class="inner-sum-header">
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Customer</th>
+                    <th>Service #</th>
+                    <th>Status</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="inner-td" colspan="6" >
+                        <table width="100%" cellpadding="0" cellspacing="0" class="print-friendly margin-top">
+                           <tbody>
+                                
+                                
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+                                <tr class="row-outer-header1">
+                                    <td class="col-xs-2" >22/07/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >iDream Solutions</td>
+                                    <td class="col-xs-2">#45645645</td>
+                                    <td class="col-xs-2" >Processed</td>
+                                    <td class="col-xs-2">USD 50,000</td>
+                                </tr>
+
+                                <tr class="row-outer-header2">
+                                    <td class="col-xs-2" >10/09/2017</td>
+                                    <td class="col-xs-2" >Integration</td>
+                                    <td class="col-xs-2" >ASP Belgium</td>
+                                    <td class="col-xs-2">#4353245</td>
+                                    <td class="col-xs-2" >Completed</td>
+                                    <td class="col-xs-2">USD 30,000</td>
+                                </tr>
+
+
+                                
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer">
+    
+        <apex:image styleClass="banner-image" url="{!URLFOR($Resource.ccResources, 'img/2017-09-28.png')}" height="280px" /> 
+
+    </footer>
+</apex:page>

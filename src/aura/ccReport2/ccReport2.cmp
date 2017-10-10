@@ -1,14 +1,26 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" description="component to display Style 1 report">
+<aura:component controller="ccDownloadReportCTRL" implements="forceCommunity:availableForAllPageTypes" access="global" description="component to display Style 1 report">
+
+	<!-- Component attributes -->
+    <aura:attribute name="base64" type="String" description="Attribute to hold genarted base64"/>
+    <aura:attribute name="selectedReport" type="String" description="Attribute to hold selected report"/>
+    <aura:attribute name="name" type="String" description="Attribute to hold report name"/>
 
 	<!-- Chart Libraries -->
-	<!-- <ltng:require scripts="{!$Resource.ccResources + '/libs/highcharts/highstock.js'}" afterScriptsLoaded="{!c.doInit}"  /> -->
+	<ltng:require scripts="{!join(',',
+		$Resource.ccResources + '/libs/highcharts/highstock.js',
+		$Resource.ccResources + '/libs/canvg/rgbcolor.min.js',
+		$Resource.ccResources + '/libs/canvg/canvg.js')}" afterScriptsLoaded="{!c.doInit}"  />	
 
-
-	<!-- Component handlers 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
     
 	<!-- START Summary Report Content -->
     <div class="col-xs-12">
+
+    	<a href="javasript:void(0);" onclick="{!c.download}">
+    		<div class="mauto download float-r" >
+    			<span class="glyphicon glyphicon-download-alt" ></span> Download PDF
+		    </div>
+		</a>
+
     	<div class="header text-center ">
     		<!-- <img src="{!$Resource.ccResources + '/img/2ea17e1.png'}" class="logo" /> -->
 	        <h2 class="text-uppercase heading-top">Real-time Sensor Data Report</h2>
@@ -18,7 +30,7 @@
       
 		<!-- Chart Container -->
 		<div id="chart-container2" class="chart-container"></div>
-		<canvas id="chartimgCanvas" width="600" height="400" style="border:1px solid;display:none"></canvas>
+		<canvas id="chartimgCanvas2" width="600" height="400" style="border:1px solid;display:none"></canvas>
 
 	</div>	
 

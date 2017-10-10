@@ -59,7 +59,7 @@ public without sharing class ccReportService
         //get the Parameters from the KCOl report record
         ccReportSelector reportSelector = new ccReportSelector();
         reportSelector.sObjectFieldStringList = new List<String>{
-                'Type__c','Name', 'Status__c'
+                'Type__c','Name', 'Status__c','Report_Id__c', 'createdDate'
         };
         List<Report_Directory__c> lsreport = reportSelector.selectById(new Set<Id>{reportId});
         report = lsreport[0];
@@ -67,7 +67,14 @@ public without sharing class ccReportService
 
         //Create PDF report
         Blob pdfbody;
-        PageReference pdf = page.ccReport;
+        PageReference pdf;
+
+        if(report.Type__c == 'report1'){
+            pdf = page.ccReport;
+        }else if(report.Type__c == 'report2'){
+            pdf = page.ccReport2;
+        }
+        
         pdf.getParameters().put('id',reportId);
 
         //Try to get the content of the pagereference
@@ -100,9 +107,23 @@ public without sharing class ccReportService
         
 
         //update the report object
+        report.Report_Id__c = att.Id;
         report.Status__c = 'Done';
         update report;
 
+    }
+
+    //method to create a new KCOL report record for downloadable reports
+    public static List<Report_Directory__c> getReports(){
+                
+        //get the Parameters from the KCOl report record
+        ccReportSelector reportSelector = new ccReportSelector();
+        reportSelector.sObjectFieldStringList = new List<String>{
+                'Type__c','Name', 'Status__c','Report_Id__c','createdDate'
+        };
+        List<Report_Directory__c> lsreport = reportSelector.selectAllReports();
+
+        return lsreport;
     }
 
 

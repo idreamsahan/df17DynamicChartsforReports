@@ -409,20 +409,6 @@
             "xmlName": "CustomMetadata"
         },
         {
-            "directoryName": "profilePasswordPolicies",
-            "inFolder": false,
-            "metaFile": false,
-            "suffix": "profilePasswordPolicy",
-            "xmlName": "ProfilePasswordPolicy"
-        },
-        {
-            "directoryName": "profileSessionSettings",
-            "inFolder": false,
-            "metaFile": false,
-            "suffix": "profileSessionSetting",
-            "xmlName": "ProfileSessionSetting"
-        },
-        {
             "directoryName": "datacategorygroups",
             "inFolder": false,
             "metaFile": false,
@@ -528,13 +514,6 @@
             "xmlName": "Community"
         },
         {
-            "directoryName": "ChatterExtensions",
-            "inFolder": false,
-            "metaFile": false,
-            "suffix": "ChatterExtension",
-            "xmlName": "ChatterExtensions"
-        },
-        {
             "directoryName": "callCenters",
             "inFolder": false,
             "metaFile": false,
@@ -582,13 +561,6 @@
             "metaFile": false,
             "suffix": "communityThemeDefinition",
             "xmlName": "CommunityThemeDefinition"
-        },
-        {
-            "directoryName": "brandingSets",
-            "inFolder": false,
-            "metaFile": false,
-            "suffix": "brandingSet",
-            "xmlName": "BrandingSet"
         },
         {
             "directoryName": "communityTemplateDefinitions",

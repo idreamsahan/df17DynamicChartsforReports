@@ -1,17 +1,17 @@
 ({
     getData : function(cmp, helper) {
-        	
-    		//Set report name 
-    		cmp.set('v.name', 'Expenditure Report');
+            
+            //Set report name 
+            cmp.set('v.name', 'Expenditure Report');
 
-    		var dataCategories = ['1-2016','2-2016','3-2016','4-2016','5-2016','6-2016','7-2016','8-2016','92016','10-2016','11-2016','12-2016'];
+            var dataCategories = ['1-2016','2-2016','3-2016','4-2016','5-2016','6-2016','7-2016','8-2016','92016','10-2016','11-2016','12-2016'];
             var costValues = [30000, 10000, 45000, 65000,30000, 40000, 25000, 95000,30000, 10000, 75000, 55000,];
 
             var costChart1 = new Highcharts.Chart('chart-container1', {
-							        chart: {
+                                    chart: {
                                         marginTop: 20,
-							            type: 'column',
-							            width:1100,
+                                        type: 'column',
+                                        width:1100,
                                         events:{
                                             click:function(e){
                                                 if (e.xAxis[0].value < 0) {
@@ -21,49 +21,49 @@
                                                 }
                                             }
                                         }
-							        },
-							        title: {
-								        style: {
-								            display: 'none'
-								        }
-								    },
-							        xAxis: {
-										categories: dataCategories ,
-										title: {
-									        text: ''
-									    },
-									    labels: {
-									        style: {
+                                    },
+                                    title: {
+                                        style: {
+                                            display: 'none'
+                                        }
+                                    },
+                                    xAxis: {
+                                        categories: dataCategories ,
+                                        title: {
+                                            text: ''
+                                        },
+                                        labels: {
+                                            style: {
                                                 fontSize:'12px'
                                             }
-									    }
-									},
-									tooltip: {
-								        style: {
-								            display: 'none'
-								        }
-								    },
-									yAxis: {
-										title: {
-									        text: ''
-									    },
+                                        }
+                                    },
+                                    tooltip: {
+                                        style: {
+                                            display: 'none'
+                                        }
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: ''
+                                        },
                                         
-									    labels: {
-									        style: {
+                                        labels: {
+                                            style: {
                                                 fontSize:'12px'
                                             }
-									    }
-									},
-									series: [{
-										name: '',
-										cursor: 'pointer',
-										
-										//Pass the values through chartValues attribute
-										data: costValues ,
-										showInLegend: false,
+                                        }
+                                    },
+                                    series: [{
+                                        name: '',
+                                        cursor: 'pointer',
+                                        
+                                        //Pass the values through chartValues attribute
+                                        data: costValues ,
+                                        showInLegend: false,
                                         minPointLength:2
-									}],
-									colors: ['#148ed8' ],
+                                    }],
+                                    colors: ['#148ed8' ],
                                     navigation: {
                                         buttonOptions: {
                                             enabled: false
@@ -72,14 +72,13 @@
                                     credits: {
                                         enabled: false
                                     }
-							    });
+                                });
               
-                console.log(costChart1);
           
     },
     downloadReport : function(component, helper){
-    	
-    	//Get SVG element and then serialize it to convert to a stream of String
+        
+        //Get SVG element and then serialize it to convert to a stream of String
         var svg = document.getElementById('chart-container1').childNodes[0].childNodes[0];
         var serializer = new XMLSerializer();
         var svgString = serializer.serializeToString(svg);
@@ -110,17 +109,23 @@
     },
 
     generateReport : function(component){
-    	//Send data to generate Report
+        //Send data to generate Report
         var action = component.get('c.getDownloadReport');  
         action.setParams({
-        	'selectedReport' : component.get('v.selectedReport'), 
-        	'imgData' : component.get('v.base64'), 
-        	'name' : component.get('v.name')
+            'selectedReport' : component.get('v.selectedReport'), 
+            'imgData' : component.get('v.base64'), 
+            'name' : component.get('v.name')
         });
         action.setCallback(this,function(response) {
             if (response.getState() === 'SUCCESS') {
                 var result = response.getReturnValue();
-                console.log(result);                
+                
+                //Navigate to Report Store
+                var urlEvent = $A.get("e.force:navigateToURL");
+                urlEvent.setParams({
+                  "url": "/reportdock"
+                });
+                urlEvent.fire();       
             }
             else {
                 console.log('ERROR: ', response.getError());

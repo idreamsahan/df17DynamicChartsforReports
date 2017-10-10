@@ -10,10 +10,6 @@
 		$Resource.ccResources + '/libs/highcharts/highstock.js',
 		$Resource.ccResources + '/libs/canvg/rgbcolor.min.js',
 		$Resource.ccResources + '/libs/canvg/canvg.js')}" afterScriptsLoaded="{!c.doInit}"  />
-
-
-	<!-- Component handlers
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  -->  
     
 	<!-- START Summary Report Content -->
     <div class="col-xs-12">

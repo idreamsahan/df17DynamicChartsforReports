@@ -33,4 +33,20 @@ public without sharing class ccReportSelector extends ccSObjectsSelector{
         System.debug('soqlQuery : ' + soqlQuery);
         return Database.query(soqlQuery);
     }
+
+    //Get the parameters via the id
+    public List<Report_Directory__c> selectAllReports()
+    {
+        soqlQuery = String.format(
+                'SELECT {0} ' +
+                        'FROM {1} ' +
+                        '{2} ',
+                new List<String> {
+                        getSelectString(),
+                        getSObjectName(),
+                        getOrderByString()
+                });
+        System.debug('soqlQuery : ' + soqlQuery);
+        return Database.query(soqlQuery);
+    }
 }

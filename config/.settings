@@ -1,12 +1,12 @@
 {
     "projectName": "Dreamforce17",
     "username": "dreamforce17@absi.be",
-    "id": "20614210-a859-11e7-a7de-17ebcb28611c",
+    "id": "e6956910-ada5-11e7-8bba-8528520d5f3d",
     "namespace": "",
     "orgType": "developer",
     "loginUrl": "https://login.salesforce.com/",
-    "instanceUrl": "https://ap5.salesforce.com",
-    "workspace": "C:\\Users\\sahanp\\Documents\\Dreamforce",
+    "instanceUrl": "https://df17-absi-dev-ed.my.salesforce.com",
+    "workspace": "C:\\Users\\sahanp\\Documents\\Dreamforce17",
     "subscription": [
         "ApexClass",
         "ApexComponent",

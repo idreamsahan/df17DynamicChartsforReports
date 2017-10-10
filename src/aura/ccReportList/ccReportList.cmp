@@ -1,0 +1,84 @@
+<aura:component controller="ccReportListCTRL" implements="forceCommunity:availableForAllPageTypes" access="global" description="component to display report list">
+
+	<!-- Attributes -->
+	<aura:attribute name="reportList" type="Object" description="Attribute to hold report list"/>
+
+	<!-- Chart Libraries -->
+	<ltng:require styles="{!$Resource.ccResources + '/libs/bootstrap/css/bootstrap.min.css'}"/>
+
+
+	<!-- Component handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+	<!-- START Summary Report Content -->
+    <div>
+	    <div class="col-xs-12">
+	    	<aura:iteration items="{!v.reportList}" var="report" indexVar="index">
+		    	<div class="col-xs-6 col-md-4 col-lg-4 report-card-bottom report" onclick="{!c.cardActive}">
+	                <!-- Adding class .rp-loading-spinner to card will add the spinner-->
+	                <div class="{!report.Status__c == 'Done' ? 'card' : 'card rp-loading-spinner'}">
+	                    <!-- Loading Spinner -->
+	                    <div class="rp-loader-overlay">
+	                        <div class="rp-loader-outer">
+	                            <!-- <div class="rp-loader"></div> -->
+	                            <lightning:spinner class="slds-spinner_brand custom-spinner" aura:id="spinner" />
+	                        </div>
+	                    </div>
+	                    <div class="report-card">
+	                        <div class="row">
+	                            <div class="col-xs-4">
+	                                <span class="card-label">Name :</span>
+	                            </div>
+	                            <div class="col-xs-8">
+	                                <span class="card-data">{!report.Name}</span>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-xs-4">
+	                                <span class="card-label">Created :</span>
+	                            </div>
+	                            <div class="col-xs-8">
+	                                <span class="card-data"><ui:outputDateTime value="{!report.CreatedDate}" /></span>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-xs-12 rp-file-type">
+	                                <img src="{!$Resource.ccResources + '/img/PDF.png'}"  width="60" height="auto"/>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="report-card-footer text-uppercase">
+	                    	{!report.Name}
+	                        
+	                    </div>
+	                </div>
+
+	                <div class="hover">
+	                    <div class="report-card-hover">
+	                        <!-- Hover Controls -->
+	                        <div class="controllers">
+	                            <div class="controllerlist">
+	                                <a id="{!report.Id}" href="javascript:void(0);" class="text-center color-white del-a" onclick="{!c.deleteReportFile}">
+	                                    <p><span class="glyphicon glyphicon-trash" ></span></p>
+	                                </a>
+	                            </div>
+	                        </div>
+
+	                        <!-- Hover Body -->
+	                        <h2 class="report-card-hover-body">
+	                            <a target="_blank" href="{!'/servlet/servlet.FileDownload?file=' + report.Report_Id__c}"  class="color-white full-size-a"><span class="glyphicon glyphicon-download-alt" ></span> Download</a>
+	                        </h2>
+	                    </div>
+	                    <!-- <div class="report-card-footer-hover text-uppercase">
+	                    Download PDF
+	                        <div class="report-card-date card-label text-uppercase">
+	                        {!$Label.c.ccpAvailableUntil} : {!scheduleWrapper.availableUntil} 
+	                        </div>
+	                    </div> -->
+	                </div>
+	            </div>
+		    </aura:iteration>
+		</div>	
+	</div>	
+
+</aura:component>
